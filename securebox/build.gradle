@@ -1,7 +1,6 @@
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'maven-publish'
 
 afterEvaluate {
@@ -15,7 +14,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'ptsiogas.gr.securestorage'
                 artifactId = 'final'
-                version = '1.1.0'
+                version = version
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
@@ -24,7 +23,7 @@ afterEvaluate {
 
                 groupId = 'ptsiogas.gr.securestorage'
                 artifactId = 'final-debug'
-                version = '1.1.0'
+                version = version
             }
         }
     }
@@ -41,8 +40,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 2010170
-        versionName "1.0.1"
+        versionCode 2110010
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -57,6 +56,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+    }
+
     buildToolsVersion = '30.0.3'
 
 }
