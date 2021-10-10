@@ -9,6 +9,7 @@ buildscript {
         configTargetSdkVersion = 30
         configMinSdkVersion = 16
         configBuildToolsVersion = '30.0.3'
+        detektVersion = '1.18.0'
     }
 
     repositories {
@@ -18,7 +19,9 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:${gradleToolsVersion}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${detektVersion}"
     }
+
 }
 
 allprojects {
