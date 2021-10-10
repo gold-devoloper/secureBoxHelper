@@ -35,11 +35,11 @@ android {
         unitTests.includeAndroidResources = true
     }
 
-    compileSdkVersion 30
+    compileSdkVersion configCompileSdkVersion
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 30
+        minSdkVersion configMinSdkVersion
+        targetSdkVersion configTargetSdkVersion
         versionCode 2110010
         versionName "1.1.0"
 
@@ -53,26 +53,21 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = configJavaVersion
+        targetCompatibility = configJavaVersion
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
+        jvmTarget = configJavaVersion
     }
 
-    buildToolsVersion = '30.0.3'
+    buildToolsVersion = configBuildToolsVersion
 
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    baseGroup dependencies
 }
 repositories {
     mavenCentral()
