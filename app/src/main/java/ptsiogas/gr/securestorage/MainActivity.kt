@@ -2,34 +2,37 @@ package ptsiogas.gr.securestorage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
 import ptsiogas.gr.securebox.SecureBoxHelper
+import ptsiogas.gr.securestorage.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private var binding: ActivityMainBinding? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        encryptButton.setOnClickListener {
-            val text = editText?.text?.toString() ?: return@setOnClickListener
+        binding?.encryptButton?.setOnClickListener {
+            val text = binding?.editText?.text?.toString() ?: return@setOnClickListener
             SecureBoxHelper.instance.encryptString("testVar", text)
-            resultTextView.text = "encrypted succesfully"
+            binding?.resultTextView?.text = "encrypted succesfully"
         }
 
-        testButton.setOnClickListener {
-            resultTextView.text = SecureBoxHelper.instance.decryptString("testVar")
+        binding?.testButton?.setOnClickListener {
+            binding?.resultTextView?.text = SecureBoxHelper.instance.decryptString("testVar")
         }
 
-        wrongPassTestButton.setOnClickListener {
-            resultTextView.text = SecureBoxHelper.instance.decryptString("testVar", "wrongPass")
+        binding?.wrongPassTestButton?.setOnClickListener {
+            binding?.resultTextView?.text = SecureBoxHelper.instance.decryptString("testVar", "wrongPass")
         }
 
-        deleteTestButton.setOnClickListener {
+        binding?.deleteTestButton?.setOnClickListener {
             if (SecureBoxHelper.instance.deleteString("testVar")) {
-                resultTextView.text = "deleted succesfully"
+                binding?.resultTextView?.text = "deleted succesfully"
             } else {
-                resultTextView.text = "error!"
+                binding?.resultTextView?.text = "error!"
             }
         }
     }
