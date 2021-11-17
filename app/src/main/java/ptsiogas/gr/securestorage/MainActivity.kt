@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /** This is a debug function for testing purposes */
+    @Suppress("MagicNumber", "UnusedPrivateMember")
     private fun testThreadSafety() {
         val randomPassword = UUID.randomUUID().toString()
         val randomText = UUID.randomUUID().toString()
