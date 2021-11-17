@@ -39,7 +39,7 @@ class SecureBoxHelper {
     @Synchronized
     fun encryptString(variableName: String, plainText: String): Boolean {
         try {
-            return encryptString(variableName, plainText, EncryptionUtils.getSecureId(context))
+            return encryptString(variableName, plainText, SBHEncryptionUtils.getSecureId(context))
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -69,7 +69,7 @@ class SecureBoxHelper {
     @Synchronized
     fun decryptString(variableName: String): String? {
         try {
-            return decryptString(variableName, EncryptionUtils.getSecureId(context))
+            return decryptString(variableName, SBHEncryptionUtils.getSecureId(context))
         } catch (e: Exception) {
             ErrorMessage.logGeneralError()
         }
@@ -153,17 +153,17 @@ class SecureBoxHelper {
 
         try {
             //Random salt for next step
-            val salt = EncryptionUtils.getRandomByteArray(arraySize = 256)
+            val salt = SBHEncryptionUtils.getRandomByteArray(arraySize = 256)
 
             //PBKDF2 - derive the key from the password, don't use passwords directly
-            val keySpec = EncryptionUtils.getKeySpec(passwordString, salt)
+            val keySpec = SBHEncryptionUtils.getKeySpec(passwordString, salt)
 
             //Create initialization vector for AES
-            val iv = EncryptionUtils.getRandomByteArray(arraySize = 16)
+            val iv = SBHEncryptionUtils.getRandomByteArray(arraySize = 16)
             val ivSpec = IvParameterSpec(iv)
 
             //Encrypt
-            val encrypted = EncryptionUtils.encryptByteArray(plainTextBytes, keySpec, ivSpec)
+            val encrypted = SBHEncryptionUtils.encryptByteArray(plainTextBytes, keySpec, ivSpec)
 
             map["salt"] = salt
             map["iv"] = iv
@@ -183,11 +183,11 @@ class SecureBoxHelper {
             val encrypted = map["encrypted"]
 
             //regenerate key from password
-            val keySpec = EncryptionUtils.getKeySpec(passwordString, salt)
+            val keySpec = SBHEncryptionUtils.getKeySpec(passwordString, salt)
 
             //Decrypt
             val ivSpec = IvParameterSpec(iv)
-            decrypted = EncryptionUtils.decryptByteArray(encrypted, keySpec, ivSpec)
+            decrypted = SBHEncryptionUtils.decryptByteArray(encrypted, keySpec, ivSpec)
         } catch (e: Exception) {
             e.printStackTrace()
         }

@@ -10,7 +10,7 @@ import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.PBEKeySpec
 import javax.crypto.spec.SecretKeySpec
 
-class EncryptionUtils {
+class SBHEncryptionUtils {
     companion object {
         private fun getCipher(): Cipher {
             return Cipher.getInstance("AES/CBC/PKCS7Padding")
