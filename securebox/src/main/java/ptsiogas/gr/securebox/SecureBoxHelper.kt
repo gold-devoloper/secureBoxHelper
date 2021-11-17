@@ -36,6 +36,7 @@ class SecureBoxHelper {
         return true
     }
 
+    @Synchronized
     fun encryptString(variableName: String, plainText: String): Boolean {
         try {
             return encryptString(variableName, plainText, EncryptionUtils.getSecureId(context))
@@ -46,6 +47,7 @@ class SecureBoxHelper {
         return false
     }
 
+    @Synchronized
     fun encryptString(variableName: String, plainText: String, passwordString: String): Boolean {
         if (!checkInit()) {
             return false
@@ -64,6 +66,7 @@ class SecureBoxHelper {
         return false
     }
 
+    @Synchronized
     fun decryptString(variableName: String): String? {
         try {
             return decryptString(variableName, EncryptionUtils.getSecureId(context))
@@ -73,6 +76,7 @@ class SecureBoxHelper {
         return null
     }
 
+    @Synchronized
     fun decryptString(variableName: String, passwordString: String): String? {
         if (!checkInit()) {
             return null
@@ -103,6 +107,7 @@ class SecureBoxHelper {
         return null
     }
 
+    @Synchronized
     fun deleteString(variableName: String): Boolean {
         if (!checkInit()) {
             return false
@@ -116,6 +121,7 @@ class SecureBoxHelper {
         return false
     }
 
+    @Synchronized
     fun deleteAllStrings(): Boolean {
         if (!checkInit()) {
             return false
