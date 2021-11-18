@@ -1,6 +1,32 @@
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'ptsiogas.gr.securestorage'
+                version = version
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+
+                groupId = 'ptsiogas.gr.securestorage'
+                artifactId = 'final-debug'
+                version = version
+            }
+        }
+    }
+}
 
 android {
 
@@ -13,7 +39,7 @@ android {
     defaultConfig {
         minSdkVersion configMinSdkVersion
         targetSdkVersion configTargetSdkVersion
-        versionCode 2111171
+        versionCode 2111180
         versionName "1.2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
