@@ -29,7 +29,7 @@ maven { url 'https://jitpack.io' }
 
 dependencies {
 
-implementation 'com.github.ptsiogas4.secureBoxHelper:securebox:1.2.1'
+implementation 'com.github.ptsiogas4.secureBoxHelper:securebox:1.3.0'
 
 }
 
@@ -69,7 +69,7 @@ ptsiogas - <a  href='javascript:'>ptsiogas@gmail.com</a>
 
 ## License
 
-Copyright [2019] ptsiogas
+Copyright [2022] ptsiogas
 
   
 
