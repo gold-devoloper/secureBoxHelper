@@ -3,7 +3,7 @@
 
 # secureBoxHelper
 UPDATE: After the 1.2.1 we have changed the publication method to use the "maven-publish" plugin. So see below the implementation changes.
-This is a simple Kotlin library in order to easily encrypt/decrypt a String with a given password. It uses the AES encryption algorithm in CBC mode.
+This is a simple Kotlin library in order to easily encrypt/decrypt a String with a given password. It uses the AES encryption algorithm in GCM mode.
 
   
 
