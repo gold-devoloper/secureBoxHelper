@@ -6,6 +6,7 @@ import java.io.File
 import java.io.IOException
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
+import javax.crypto.AEADBadTagException
 import javax.crypto.spec.IvParameterSpec
 
 class SecureBoxHelper {
@@ -82,16 +83,22 @@ class SecureBoxHelper {
             return null
         }
         try {
+            var decryptedResult: DecryptedResult = DecryptedResult()
             val fileInputStream = context?.openFileInput(variableName + ".dat")
             fileInputStream?.use { fileInputStream ->
                 val objectInputStream = ObjectInputStream(fileInputStream)
                 val map = objectInputStream.readObject() as HashMap<String, ByteArray>
-                val decryptedByteArray = decryptString(map, passwordString)
-                if (decryptedByteArray != null) {
-                    return String(decryptedByteArray)
-                } else {
+                decryptedResult = decryptString(map, passwordString)
+                if (!decryptedResult.isValid()) {
                     ErrorMessage.logGeneralError()
                 }
+            }
+
+            if (decryptedResult.isValid()) {
+                if (decryptedResult.needsMigration) {
+                    encryptString(variableName, decryptedResult.getStringResult()!!, passwordString)
+                }
+                return decryptedResult.getStringResult()
             }
         } catch (e: ClassNotFoundException) {
             e.printStackTrace()
@@ -175,8 +182,11 @@ class SecureBoxHelper {
         return map
     }
 
-    private fun decryptString(map: HashMap<String, ByteArray>, passwordString: String): ByteArray? {
-        var decrypted: ByteArray? = null
+    private fun decryptString(
+        map: HashMap<String, ByteArray>,
+        passwordString: String
+    ): DecryptedResult {
+        val decryptedResult: DecryptedResult = DecryptedResult()
         try {
             val salt = map["salt"]
             val iv = map["iv"]
@@ -187,11 +197,24 @@ class SecureBoxHelper {
 
             //Decrypt
             val ivSpec = IvParameterSpec(iv)
-            decrypted = SBHEncryptionUtils.decryptByteArray(encrypted, keySpec, ivSpec)
+
+            try {
+                decryptedResult.result =
+                    SBHEncryptionUtils.decryptByteArray(encrypted, keySpec, ivSpec)
+            } catch (e: Exception) {
+                if (e is AEADBadTagException) {
+                    //Migration flow
+                        val keySpecMig = SBHEncryptionUtils.getKeySpec(passwordString, salt, useMigrationFactory = true)
+                    decryptedResult.result = SBHEncryptionUtils.decryptByteArray_migration(encrypted, keySpecMig, ivSpec)
+                    decryptedResult.needsMigration = true
+                } else {
+                    e.printStackTrace()
+                }
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }
 
-        return decrypted
+        return decryptedResult
     }
 }
