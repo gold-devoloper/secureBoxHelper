@@ -7,7 +7,7 @@ buildscript {
         gradleToolsVersion = '7.0.2'
         configCompileSdkVersion = 30
         configTargetSdkVersion = 30
-        configMinSdkVersion = 16
+        configMinSdkVersion = 19
         configBuildToolsVersion = '30.0.3'
         detektVersion = '1.18.0'
     }
