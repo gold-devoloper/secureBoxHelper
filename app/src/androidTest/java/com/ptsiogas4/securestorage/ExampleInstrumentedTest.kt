@@ -1,4 +1,4 @@
-package ptsiogas.gr.securestorage
+package com.ptsiogas4.securestorage
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

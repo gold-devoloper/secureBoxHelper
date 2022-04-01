@@ -1,4 +1,4 @@
-package ptsiogas.gr.securestorage
+package com.ptsiogas4.securestorage
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package ptsiogas.gr.securestorage
+package com.ptsiogas4.securestorage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,8 +6,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newFixedThreadPoolContext
 import kotlinx.coroutines.runBlocking
-import ptsiogas.gr.securebox.SecureBoxHelper
-import ptsiogas.gr.securestorage.databinding.ActivityMainBinding
+import com.ptsiogas4.securebox.SecureBoxHelper
+import com.ptsiogas4.securestorage.databinding.ActivityMainBinding
 import java.util.*
 import kotlin.random.Random
 

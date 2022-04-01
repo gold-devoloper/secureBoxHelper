@@ -1,4 +1,4 @@
-package ptsiogas.gr.securebox
+package com.ptsiogas4.securebox
 
 import android.content.Context
 import java.io.ObjectInputStream

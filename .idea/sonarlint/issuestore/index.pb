@@ -1,8 +1,6 @@
 
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
-V
-&securebox/src/main/AndroidManifest.xml,0/f/0f9630422acca47743e845c85890819166c33acd
 r
 Bsecurebox/src/test/java/ptsiogas/gr/securebox/ExampleUnitTest.java,1/3/13723cb96da21ca0be0a0fa810aaa34bd6a7ef55
 m
@@ -13,3 +11,11 @@ k
 settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
+r
+Bsecurebox/src/test/java/ptsiogas/gr/securebox/ThreadSafetyTests.kt,0/d/0d0cbee3c24c5ab565718bd082b9061e3524a3e4
+@
+app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
+s
+Csecurebox/src/main/java/ptsiogas/gr/securebox/SBHEncryptionUtils.kt,9/5/95a999ab262edf26a421cb82eb7b4b6cc3e172a1
+p
+@securebox/src/main/java/ptsiogas/gr/securebox/SecureBoxHelper.kt,b/8/b846b72142996f1ab8dc98635b640cb8463cf461

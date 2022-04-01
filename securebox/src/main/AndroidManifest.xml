@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="ptsiogas.gr.securebox">
+          package="com.ptsiogas4.securebox">
 
     <application>
 
         <provider
-                android:name=".SecureBoxContentProvider"
+                android:name="com.ptsiogas4.securebox.SecureBoxContentProvider"
                 android:authorities="${applicationId}.SecureBoxContentProvider" />
     </application>
 </manifest>

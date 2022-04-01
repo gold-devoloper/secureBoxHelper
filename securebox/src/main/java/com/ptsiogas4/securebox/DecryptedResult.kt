@@ -1,4 +1,4 @@
-package ptsiogas.gr.securebox
+package com.ptsiogas4.securebox
 
 class DecryptedResult {
     var result: ByteArray? = null

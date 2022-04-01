@@ -2,7 +2,8 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/ptsiogas4/secureboxhelper/badge)](https://www.codefactor.io/repository/github/ptsiogas4/secureboxhelper)
 
 # secureBoxHelper
-UPDATE: After the 1.2.1 we have changed the publication method to use the "maven-publish" plugin. So see below the implementation changes.
+UPDATE: From the 1.3.1 we have changed the publication method to use the "maven-publish" plugin. All versions below 1.3.1 are considered deprecated.
+So see below the implementation changes.
 This is a simple Kotlin library in order to easily encrypt/decrypt a String with a given password. It uses the AES encryption algorithm in GCM mode.
 
   
@@ -29,7 +30,7 @@ maven { url 'https://jitpack.io' }
 
 dependencies {
 
-implementation 'com.github.ptsiogas4.secureBoxHelper:securebox:1.3.0'
+implementation 'com.ptsiogas4:secure-box:1.3.1'
 
 }
 
