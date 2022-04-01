@@ -30,7 +30,7 @@ maven { url 'https://jitpack.io' }
 
 dependencies {
 
-implementation 'com.ptsiogas4:secure-box:1.3.1'
+implementation 'com.ptsiogas4:securebox:1.3.1'
 
 }
 
