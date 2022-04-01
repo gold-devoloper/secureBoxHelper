@@ -7,8 +7,6 @@ m
 =securebox/src/main/java/ptsiogas/gr/securebox/ErrorMessage.kt,6/2/62161e57b2cd187665aca757dbadd2c60f21ac1f
 k
 ;app/src/main/java/ptsiogas/gr/securestorage/MainActivity.kt,7/b/7b6073285f7a21ea4811179ef5ab66ab5f4a2de4
-?
-settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
 r

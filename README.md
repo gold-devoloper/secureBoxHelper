@@ -1,6 +1,6 @@
 [![codebeat badge](https://codebeat.co/badges/085851e5-61df-482f-a5a7-5af0cad123e7)](https://codebeat.co/projects/github-com-ptsiogas4-secureboxhelper-master)
 [![CodeFactor](https://www.codefactor.io/repository/github/ptsiogas4/secureboxhelper/badge)](https://www.codefactor.io/repository/github/ptsiogas4/secureboxhelper)
-
+[![Release](https://jitpack.io/v/User/Repo.svg)](https://jitpack.io/#User/Repo)
 # secureBoxHelper
 UPDATE: From the 1.3.1 we have changed the publication method to use the "maven-publish" plugin. All versions below 1.3.1 are considered deprecated.
 So see below the implementation changes.
@@ -30,7 +30,7 @@ maven { url 'https://jitpack.io' }
 
 dependencies {
 
-implementation 'com.ptsiogas4:securebox:1.3.1'
+implementation 'com.github.ptsiogas4:secureBoxHelper:1.3.1'
 
 }
 
