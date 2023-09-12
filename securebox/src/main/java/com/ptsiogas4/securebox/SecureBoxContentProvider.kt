@@ -5,16 +5,19 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 
-class SecureBoxContentProvider : ContentProvider() {
+class SecureBoxContentProvider : ContentProvider {
+
+    constructor() : super()
+
     override fun onCreate(): Boolean {
-        if (this.context != null) {
-            SecureBoxHelper.instance.init(this.context)
+        if (context != null) {
+            SecureBoxHelper.instance.init(context)
         }
         return true
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri {
-        //do nothing
+        // do nothing
         return uri
     }
 
