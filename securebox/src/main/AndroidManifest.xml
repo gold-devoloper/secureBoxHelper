@@ -5,6 +5,7 @@
 
         <provider
                 android:name="com.ptsiogas4.securebox.SecureBoxContentProvider"
-                android:authorities="${applicationId}.SecureBoxContentProvider" />
+                android:authorities="${applicationId}.SecureBoxContentProvider"
+                android:exported="false" />
     </application>
 </manifest>

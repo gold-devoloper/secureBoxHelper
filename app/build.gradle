@@ -34,8 +34,6 @@ android {
         jvmTarget = configJavaVersion
     }
 
-    buildToolsVersion = configBuildToolsVersion
-
     viewBinding {
         enabled true
     }
